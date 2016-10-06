@@ -1,0 +1,21 @@
+
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+## October 6, 2016
+
+This is a map of some of the hotels used by DragonCon, the southeast's largest geek convention, located in downtown Atlanta.
+```{r Map, echo = FALSE}
+df<-data.frame(hotel = c("Marriott Marquis", "Hyatt International", "Americas Mart"), lat = c(33.7616, 33.7617,  33.7603),lng = c(-84.3856, -84.3871, -84.3883))
+
+library(leaflet)
+dcon<-makeIcon(iconUrl="http://waterworldmermaids.com/wp-content/uploads/2015/08/NEW_LOGO_DC.gif", iconWidth = 65, iconHeight = 50, iconAnchorX = 25, iconAnchorY = 25)
+
+df %>%
+  leaflet() %>%
+  addTiles() %>%
+  addMarkers(lat = df$lat, lng = df$lng, icon = dcon, popup = df$hotel, clusterOptions = markerClusterOptions())
+```
+
