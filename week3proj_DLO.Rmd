@@ -23,4 +23,5 @@ levels(mtcars$am)[levels(mtcars$am)=="1"] <- "manual"
 g<-ggplot(mtcars, aes(hp,mpg, color=am))+geom_point(aes(shape=cyl, alpha = gear))
 ggplotly(g)
 ```
+
 ## Slide with Bullets
