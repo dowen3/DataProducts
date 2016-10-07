@@ -24,4 +24,4 @@ g<-ggplot(mtcars, aes(hp,mpg, color=am))+geom_point(aes(shape=cyl, alpha = gear)
 ggplotly(g)
 ```
 
-## Slide with Bullets
+## Thank you
