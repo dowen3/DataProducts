@@ -1,0 +1,26 @@
+---
+title: "Developing Data Products Week 3 Project"
+author: "Drew Owen"
+date: "October 7, 2016"
+output: ioslides_presentation
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = FALSE)
+data(mtcars)
+library(ggplot2)
+library(plotly)
+mtcars$cyl<-as.factor(mtcars$cyl)
+mtcars$carb<-as.factor(mtcars$carb)
+mtcars$gear<-as.factor(mtcars$gear)
+mtcars$am<-as.factor(mtcars$am)
+levels(mtcars$am)[levels(mtcars$am)=="0"] <- "auto"
+levels(mtcars$am)[levels(mtcars$am)=="1"] <- "manual"
+```
+
+## Plotly of mpg data from mtcars dataset
+```{r}
+g<-ggplot(mtcars, aes(hp,mpg, color=am))+geom_point(aes(shape=cyl, alpha = gear))
+ggplotly(g)
+```
+## Slide with Bullets
